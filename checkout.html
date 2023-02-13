@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>ThanhDong - Checkout</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="js/angular.min.js"></script>
+    <style>
+        tr .rounded {
+            height: 50px;
+        }
+
+        tr {
+            vertical-align: middle;
+        }
+
+        .thanhtoan img {
+            height: 30px;
+        }
+
+        thead td {
+            text-align: center !important;
+            vertical-align: middle !important;
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+
+</head>
+
+<body class="bg-light" ng-app="myapp" ng-controller="myctrl">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light" id="navbarhide">
+            <div class="padding-blur"></div>
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="imgs/LogoRed.png" alt="" style="width: 30px;"></a>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <div class="btn-group">
+                                <a href="products.html" class="btn btn-transparent">Products</a>
+                                <button type="button" class="btn btn-transparent dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" href="products.html" id="navbarDropdown1" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Blogs
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                <li><a class="dropdown-item" href="#">Tips</a></li>
+                                <li><a class="dropdown-item" href="#">News</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Price</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="w-50 rounded-pill d-flex px-3 mx-3 shadow-lg">
+                        <span class="my-auto"><i class="bi bi-search"></i></span>
+                        <input class="form-control bg-transparent border-0 mx-auto" type="search"
+                            placeholder="Tìm nhanh">
+                    </div>
+                    <form class="d-flex">
+                        <button class="btn btn-default "><i class="bi bi-facebook"></i></button>
+                        <button class="btn btn-default "><i class="bi bi-discord"></i></button>
+                        <button class="btn btn-default "><i class="bi bi-twitter"></i></button>
+                        <a href="signin.html" class="btn btn-danger rounded-pill ms-2"><i class="bi bi-person-fill"></i>
+                            Sign in</a>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="bg-success bg-gradient">
+        <div class="container">
+            <blockquote class="blockquote pt-3">
+                <h1 class="text-light"><i class="bi bi-bag-check"></i> Thanh toán</h1>
+            </blockquote>
+
+            <div class="row">
+                <!-- left -->
+                <div class="col-lg-7 p-4 rounded" style="background-color: rgba(255, 255, 255, 0.7);">
+                    <h3 class="text-center"><i class="bi bi-1-circle-fill"></i> Thông tin giao hàng</h3>
+                    <p class="text-center">Bạn đã có tài khoản ? <a href="signin.html">Đăng nhập</a></p>
+                    <form class="row g-3">
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInput"
+                                    placeholder="name@example.com" ng-model="info.name">
+                                <label for="floatingInput">Họ tên</label>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="floatingEmail" placeholder="Email"
+                                    ng-model="info.email">
+                                <label for="floatingEmail">Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-floating">
+                                <input type="tel" class="form-control" id="floatingInput" placeholder="name@example.com"
+                                    ng-model="info.phone">
+                                <label for="floatingInput">Số điện thoại</label>
+                            </div>
+                        </div>
+                    </form>
+
+                    <table class="table  border-light border border-2 rounded my-4">
+                        <tr>
+                            <th class="text-start">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="nhanhang" checked
+                                        id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        <i class="bi bi-truck"></i>
+                                        Giao tận nơi
+                                    </label>
+                                </div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="row g-3">
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="floatingInput"
+                                            placeholder="name@example.com" ng-model="info.address">
+                                        <label for="floatingInput">Địa chỉ</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="floatingSelect"
+                                            aria-label="Floating label select example" ng-model="info.tinh">
+                                            <option value="Tp Hồ Chí Minh">Tp Hồ Chí Minh</option>
+                                            <option value="Tp Hồ Chí Minh">Tp Hồ Chí Minh</option>
+                                            <option value="Tp Hồ Chí Minh">Tp Hồ Chí Minh</option>
+                                        </select>
+                                        <label for="floatingSelect">Tỉnh / Thành phố</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="floatingSelect"
+                                            aria-label="Floating label select example" ng-model="info.huyen">
+                                            <option value="Quận 12">Quận 12</option>
+                                            <option value="Quận 12">Quận 12</option>
+                                            <option value="Quận 12">Quận 12</option>
+                                        </select>
+                                        <label for="floatingSelect">Quận / Huyện</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="floatingSelect"
+                                            aria-label="Floating label select example" ng-model="info.xa">
+                                            <option value="Phường Tân Chánh Hiệp">Phường Tân Chánh Hiệp</option>
+                                            <option value="Phường Tân Chánh Hiệp">Phường Tân Thới Hiệp</option>
+                                            <option value="Phường Tân Chánh Hiệp">Phường Tân Kiểng</option>
+                                        </select>
+                                        <label for="floatingSelect">Phường / Xã</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-light rounded-pill float-end"><i class="bi bi-map"></i> Chọn
+                                        trên bản đồ</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="text-start">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="nhanhang" id="flexRadioDefault2">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        <i class="bi bi-shop-window"></i>
+                                        Nhận tại cửa hàng
+                                    </label>
+                                </div>
+                            </th>
+                        </tr>
+                    </table>
+                    <h3 class="mt-5 text-center"><i class="bi bi-2-circle-fill"></i> Phương thức thanh toán</h3>
+                    <div class="row">
+                        <table class="table border thanhtoan">
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="thanhtoan" checked
+                                            id="thanhtoan1">
+                                        <label class="form-check-label w-100" for="thanhtoan1">
+                                            <i class="bi bi-cash-stack"></i>
+                                            Trực tiếp khi nhận hàng
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="thanhtoan" id="thanhtoan2">
+                                        <label class="form-check-label w-100" for="thanhtoan2">
+                                            <img class="float-end" src="imgs/icon-momo.png" alt="">
+                                            Ví điện tử MoMo
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="thanhtoan" id="thanhtoan3">
+                                        <label class="form-check-label w-100" for="thanhtoan3">
+                                            <img class="float-end" src="imgs/icon-vtmonney.png" alt="">
+                                            Viettel Money
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="thanhtoan" id="thanhtoan4">
+                                        <label class="form-check-label w-100" for="thanhtoan4">
+                                            <img class="float-end" src="imgs/icon-vcb.png" alt="">
+                                            <img class="float-end" src="imgs/icon-bidv.png" alt="">
+                                            <img class="float-end" src="imgs/icon-acb.jpg" alt="">
+                                            Thẻ nội địa / Digibank (VCB, BIDV, ACB)
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="thanhtoan" id="thanhtoan5">
+                                        <label class="form-check-label w-100" for="thanhtoan5">
+                                            <img class="float-end" src="imgs/icons8-visa-48.png" alt="">
+                                            <img class="float-end" src="imgs/icons8-mastercard-48.png" alt="">
+                                            Thẻ tín dụng (Visa, Master card)
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- right -->
+                <div class="col-lg-5 py-4 bg-light shadow rounded">
+                    <div class="border-top border-5 p-2 bg-white shadow-sm">
+                        <h5><i class="bi bi-geo-alt"></i> Xác nhận địa chỉ nhận hàng</h5>
+                        <hr>
+                        <label>
+                            Người nhận: <b>{{info.name}}</b>
+                        </label><br>
+                        <label>
+                            Liên lạc: <b>{{info.phone}} / {{info.email}}</b>
+                        </label><br>
+                        <label>
+                            Địa điểm: <b>{{info.address}}, {{info.xa}}, {{info.huyen}}, {{info.tinh}}</b>
+                        </label>
+
+                    </div>
+
+                    <table class="table" style="font-family: Segoe UI;">
+                        <thead>
+                            <tr>
+                                <td colspan="2">Sản phẩm</td>
+                                <td>Đơn giá</td>
+                                <td>Số lượng</td>
+                                <td>Số tiền</td>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><img src="imgs/photo_2022-09-28_21-58-51_1.jpg" class="rounded"></td>
+                                <td class="fw-bold">Iphone 14 Pro Max</td>
+                                <td class="text-center">20.690.000 ₫</td>
+                                <td class="qtt">1</td>
+                                <td class="text-center" style="color: red;">20.690.000 ₫</td>
+                            </tr>
+                            <tr>
+                                <td><img src="imgs/macmoi256.png" class="rounded"></td>
+                                <td class="fw-bold">Apple MacBook Air M1 256GB 2020</td>
+                                <td class="text-center">21.990.000 ₫</td>
+                                <td class="qtt">1</td>
+                                <td class="text-center" style="color: red;">21.990.000 ₫</td>
+                            </tr>
+                            <tr>
+                                <td><img src="imgs/MME73.jfif" class="rounded"></td>
+                                <td class="fw-bold">Apple AirPods 3 MagSafe</td>
+                                <td class="text-center">4.190.000 ₫</td>
+                                <td class="qtt">1</td>
+                                <td class="text-center" style="color: red;">4.190.000 ₫</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    <label>Voucher đã áp dụng:</label>
+                                    <img class="float-end" src="imgs/icon-30.jpg" alt="">
+                                    <img class="float-end" src="imgs/icon-50.png" alt="">
+                                </td>
+                            </tr>
+                        </tbody>
+                        <caption>
+                            <label>Tổng tiền hàng (3 sản phẩm): </label><label class="float-end">46.870.000₫</label><br>
+                            <label>Phí vận chuyển: </label><label class="float-end">35.000₫</label><br>
+                            <label>Tổng Voucher: </label><label class="float-end">-10.000₫</label><br>
+                            <label class="fs-5">Tổng thanh toán: </label><b class="float-end fs-3">46.895.000₫</b><br>
+                        </caption>
+                    </table>
+                    <hr>
+                    <button class="form-control btn btn-danger fs-4 mb-3">Đặt hàng</button>
+                    <i>Nhấn "Đặt hàng" đồng nghĩa với việc bạn đồng ý tuân theo <a href="#">Điều khoản ThanhDong</a></i>
+                </div>
+            </div>
+
+            <hr>
+        </div>
+
+
+    </main>
+    <footer class="bg-light">
+        <div class="container">
+            <hr>
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+                aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"><img style="width: 20px;" src="imgs/LogoDark.png"
+                                alt=""></a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Shopping cart</li>
+                    <li class="breadcrumb-item active" aria-current="page">Check out</li>
+                </ol>
+            </nav>
+
+            <nav role="navigation" aria-label="More Apple Store Links" class="row">
+                <div class="col-md-6 col-lg-3">
+                    <h3>Services</h3>
+                    <ul class="nav-link">
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/apple-music/"> Apple Music</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/apple-tv-plus/"> Apple TV+</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/apple-fitness-plus/"> Apple Fitness+</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/apple-news/"> Apple News+</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/apple-arcade/"> Apple Arcade</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/icloud/">iCloud+</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/apple-one/"> Apple One</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/apple-card/"> Apple Card</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/apple-books/"> Apple</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/apple-podcasts/"> Apple Podcasts</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/app-store/">App Store</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h3>Account</h3>
+                    <ul class="nav-link">
+                        <li class="nav-link">
+                            <a href="https://appleid.apple.com"> Manage Your Apple ID</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://secure.store.apple.com/shop/account/home">Apple Store Account</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.icloud.com"> iCloud.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h3>Apple Store</h3>
+                    <ul class="nav-link">
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/retail/"> Find a Store</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/retail/geniusbar/">Genius Bar</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/retail/learn/"> Today at Apple</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/today/camp/">Apple Camp</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://itunes.apple.com/us/app/apple-store/id375380948?mt=8">Apple Store App</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/shop/refurbished"> Refurbished and Clearance</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/shop/browse/finance/PaypalFinancingLandingPage">Financing</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/shop/trade-in">Apple Trade In</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://secure.store.apple.com/shop/order/list">Order Status</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="/shop/help">Shopping Help</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h3>For Business</h3>
+                    <ul class="nav-link">
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/business/">Apple and Business</a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="https://www.apple.com/retail/business/">Shop for Business</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <p class="float-end mb-1">
+                <a href="#">Back to top</a>
+            </p>
+            <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a
+                    href="../getting-started/introduction/">getting started guide</a>.</p>
+            <hr>
+            <p class="float-end mb-1">English</p>
+            <p class="mb-0">FPT Polytechnic &copy; 2022. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        angular.module("myapp", []).controller("myctrl", function ($scope) {
+            $scope.info = {
+                name: "",
+                phone: "",
+                email: "",
+                address: "",
+                xa: "",
+                huyen: "",
+                tinh: ""
+            }
+        });
+    </script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
